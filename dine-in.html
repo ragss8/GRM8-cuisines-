@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dine-in</title>
+    <link rel="stylesheet" href="dine-in.css" href="">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tapestry&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image: url(./electric-neon-colorful-dark-background-lighting-2880x1800-2654.jpg); position: relative; display: block;">
+    <div >
+        <header class="neonText" style="font-size:80px ;">
+            - - -G.R.M.8 CUISINES - - - 
+        </header>
+    </div>
+     <p>
+        <a href="restaurant.html" style="text-decoration: none;"><b>HOME</b></a>
+        <a href="menu.html" style="text-decoration: none;"><b>MENU</b></a>
+        <a href="branches.html" style="text-decoration: none;"><b>BRANCHES</b></a>
+         </p>
+     <div class="container" style="height: 400px; width: 400px; margin-top: 50px; margin-bottom: 50px;">
+         <form action="">
+             <h2><b>SIGN-UP(authentication)</b></h2>
+             <label for="Phone" style="color: rgb(238, 231, 231);"><b>Enter phone number:</b></label><br>
+             <input type="text" placeholder="Phone number" style="width: 250px; background-color:rgb(246, 242, 242) ; height: 30px; border-radius: 4px; padding: 15px;" id="Phone"><br>
+             <label for="OTP" style="color: rgb(253, 252, 252);"><b>Enter OTP:</b></label><br>
+             <input type="text" placeholder="One Time Password" style="width: 250px; background-color: rgb(246, 241, 241);  height: 30px; border-radius: 4px; padding: 15px;" id="OTP"><br>
+             <a href="http://" target="_blank" rel="noopener noreferrer" >Resend OTP</a><br>
+             <h2></h2>
+              <button type="submit" style="background-color: rgb(11, 183, 226); color: white; border: 2px solid white; border-radius: 5px;">Log in</button>
+            </form>
+     </div>
+    </body>
+    <script>
+        const data = JSON.stringify({
+	"expiry": 900,
+	"message": "Your otp code is {code}",
+	"mobile": 971562316353,
+	"sender_id": "SMSInfo"
+});
+
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+	if (this.readyState === this.DONE) {
+		console.log(this.responseText);
+	}
+});
+
+xhr.open("POST", "https://d7-verify.p.rapidapi.com/send");
+xhr.setRequestHeader("content-type", "application/json");
+xhr.setRequestHeader("Authorization", "undefined");
+xhr.setRequestHeader("X-RapidAPI-Host", "d7-verify.p.rapidapi.com");
+xhr.setRequestHeader("X-RapidAPI-Key", "SIGN-UP-FOR-KEY");
+
+xhr.send(data);
+    </script>
+</html>
